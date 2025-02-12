@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<style>
+.form-container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 30px;
+	background-color: #f8f9fa;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group label {
+	font-weight: 600;
+}
+
+.form-footer {
+	text-align: center;
+}
+
+.btn-primary {
+	background-color: #007bff;
+	border-color: #007bff;
+}
+
+.btn-primary:hover {
+	background-color: #0056b3;
+	border-color: #0056b3;
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.alert {
+	display: none;
+}
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="#">Student Management System</a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" th:href="@{/students}">Student
+						Management</a></li>
+
+			</ul>
+		</div>
+	</nav>
+	<div class="container mt-5">
+		<!-- Heading -->
+		<div class="row mb-4">
+			<div class="col-12">
+				<h1 class="header text-primary">Create New Student</h1>
+			</div>
+		</div>
+
+		<!-- Form Container -->
+		<div class="form-container">
+			<form th:action="@{/students}" th:object="${student}" method="POST">
+
+				<!-- Name Field -->
+				<div class="form-group">
+					<label for="name">Student Name</label> <input type="text"
+						class="form-control" id="name" name="name" th:field="*{name}"
+						placeholder="Enter student name">
+				</div>
+
+				<!-- Email Field -->
+				<div class="form-group">
+					<label for="email">Email Address</label> <input type="email"
+						class="form-control" id="email" name="email" th:field="*{email}"
+						placeholder="Enter student email">
+				</div>
+
+				<!-- Contact No. Field -->
+				<div class="form-group">
+					<label for="contact">Contact No.</label> <input type="text"
+						class="form-control" id="contact" name="contact"
+						th:field="*{contact}" placeholder="Enter contact number">
+				</div>
+
+				<!-- Marks Field -->
+				<div class="form-group">
+					<label for="marks">Marks</label> <input type="text"
+						class="form-control" id="marks" name="marks" th:field="*{marks}"
+						placeholder="Enter marks">
+				</div>
+
+				<!-- Submit Button -->
+				<div class="form-footer">
+					<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- Bootstrap JS and dependencies -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
